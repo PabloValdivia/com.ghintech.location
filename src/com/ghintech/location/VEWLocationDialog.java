@@ -19,7 +19,7 @@
  * 2007, Modified by Posterita Ltd.
  */
 
-package org.adempiere.webui.window;
+package com.ghintech.location;
 
 import java.util.Iterator;
 import java.util.List;
@@ -41,6 +41,8 @@ import org.adempiere.webui.component.Panel;
 import org.adempiere.webui.component.Row;
 import org.adempiere.webui.component.Textbox;
 import org.adempiere.webui.component.Window;
+import org.adempiere.webui.window.FDialog;
+import org.adempiere.webui.window.WAutoCompleterCity;
 import org.compiere.model.GridField;
 import org.compiere.model.MBPartnerLocation;
 import org.compiere.model.MCountry;

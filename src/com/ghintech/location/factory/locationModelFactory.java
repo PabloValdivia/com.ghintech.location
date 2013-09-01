@@ -1,10 +1,13 @@
-package com.ghintech.model;
+package com.ghintech.location.factory;
 
 import java.sql.ResultSet;
 
 import org.adempiere.base.IModelFactory;
 import org.compiere.model.PO;
 import org.compiere.util.Env;
+
+import com.ghintech.model.MMunicipality;
+import com.ghintech.model.MParish;
 
 public class locationModelFactory implements IModelFactory {
 
