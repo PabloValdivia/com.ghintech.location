@@ -11,5 +11,4 @@ Require-Bundle: org.adempiere.base;bundle-version="1.0.0",
  org.zkoss.zk.library;bundle-version="6.0.0",
  org.adempiere.ui.zk;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Service-Component: locationFactory.xml,META-INF/locationFactory.xml,
- META-INF/locationModelFactory.xml
+Service-Component: META-INF/locationfactory.xml,META-INF/locationmodelfactory.xml

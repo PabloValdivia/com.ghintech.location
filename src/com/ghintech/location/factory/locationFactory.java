@@ -34,8 +34,9 @@ public class locationFactory implements IEditorFactory  {
         {
             editor = new VEWLocationEditor(gridField);
         }
+        //tableEditor=false;
         //editor.setTableEditor(tableEditor);
-        
+        	
         return editor;
 	}
 	
