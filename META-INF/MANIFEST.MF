@@ -4,7 +4,7 @@ Bundle-Name: Location
 Bundle-SymbolicName: com.ghintech.location;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: GHINTECH
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.adempiere.base;bundle-version="1.0.0",
  org.adempiere.plugin.utils;bundle-version="0.0.0",
  org.adempiere.ui;bundle-version="1.0.0",
