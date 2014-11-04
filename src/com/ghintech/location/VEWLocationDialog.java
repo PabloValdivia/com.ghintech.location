@@ -731,11 +731,13 @@ lstCountry.setHflex("1");
 					setRegion();
 				}
 			}
-			if(lstMunicipality.getSelectedItem().getValue()==null){
-				m_location.setC_Municipality_ID(0);
-			}
-			if(lstParish.getSelectedItem().getValue()==null){
-				m_location.setC_Parish_ID(0);
+			if(m_location.getC_Country_ID()==339){
+				if(lstMunicipality.getSelectedItem().getValue()==null ){
+					m_location.setC_Municipality_ID(0);
+				}
+				if(lstParish.getSelectedItem().getValue()==null ){
+					m_location.setC_Parish_ID(0);
+				}
 			}
 			String msg = validate_OK();
 			if (msg != null) {
@@ -871,14 +873,16 @@ lstCountry.setHflex("1");
 		if (isPostalAddMandatory && txtPostalAdd.getText().trim().length() == 0) {
 			fields = fields + " " + "@PostalAdd@, ";
 		}
+		if(m_location.getC_Country_ID()==339){
 		//
-		if (isMunicipalityMandatory && lstMunicipality.getSelectedItem() == null) {
-			fields = fields + " " + "@C_Municipality_ID@, ";
+			if (isMunicipalityMandatory && lstMunicipality.getSelectedItem() == null) {
+				fields = fields + " " + "@C_Municipality_ID@, ";
+			}
+			if (isParishMandatory && lstParish.getSelectedItem() == null) {
+				fields = fields + " " + "@C_parish_ID@, ";
+			}
+			//fin
 		}
-		if (isParishMandatory && lstParish.getSelectedItem() == null) {
-			fields = fields + " " + "@C_parish_ID@, ";
-		}
-		//fin
 		if (fields.trim().length() > 0)
 			return fields.substring(0, fields.length() -2);
 
@@ -911,11 +915,13 @@ lstCountry.setHflex("1");
 		{
 			m_location.setC_Region_ID(0);
 		}
+		if(m_location.getC_Country_ID()==339){
 		//
-		MMunicipality m=(MMunicipality)lstMunicipality.getSelectedItem().getValue();
-		m_location.setMunicipality(m);
-		MParish p=(MParish)lstParish.getSelectedItem().getValue();
-		m_location.setParish(p);
+			MMunicipality m=(MMunicipality)lstMunicipality.getSelectedItem().getValue();
+			m_location.setMunicipality(m);
+			MParish p=(MParish)lstParish.getSelectedItem().getValue();
+			m_location.setParish(p);
+		}
 		//fin
 		//  Save changes
 		boolean success = false;
