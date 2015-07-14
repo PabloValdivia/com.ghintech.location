@@ -1,16 +1,38 @@
+/******************************************************************************
+ * Product: iDempiere ERP & CRM Smart Business Solution                       *
+ * Copyright (C) 1999-2012 ComPiere, Inc. All Rights Reserved.                *
+ * This program is free software, you can redistribute it and/or modify it    *
+ * under the terms version 2 of the GNU General Public License as published   *
+ * by the Free Software Foundation. This program is distributed in the hope   *
+ * that it will be useful, but WITHOUT ANY WARRANTY, without even the implied *
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+ * See the GNU General Public License for more details.                       *
+ * You should have received a copy of the GNU General Public License along    *
+ * with this program, if not, write to the Free Software Foundation, Inc.,    *
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *
+ * For the text or an alternative of this public license, you may reach us    *
+ * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
+ * or via info@compiere.org or http://www.compiere.org/license.html           *
+ *****************************************************************************/
 package com.ghintech.model;
-
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.compiere.util.KeyNamePair;
 
-public interface I_C_Municipality {
-	  /** TableName=C_Municipality */
+/** Generated Interface for C_Municipality
+ *  @author iDempiere (generated) 
+ *  @version Release 2.1
+ */
+@SuppressWarnings("all")
+public interface I_C_Municipality 
+{
+
+    /** TableName=C_Municipality */
     public static final String Table_Name = "C_Municipality";
 
-    /** AD_Table_ID=164 */
+    /** AD_Table_ID=1000014 */
     public static final int Table_ID = MTable.getTable_ID(Table_Name);
 
     KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
@@ -46,16 +68,34 @@ public interface I_C_Municipality {
     public static final String COLUMNNAME_C_Country_ID = "C_Country_ID";
 
 	/** Set Country.
-	  * Country 
+	  * Country
 	  */
 	public void setC_Country_ID (int C_Country_ID);
 
 	/** Get Country.
-	  * Country 
+	  * Country
 	  */
 	public int getC_Country_ID();
 
-	public I_C_Country getC_Country() throws RuntimeException;
+	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException;
+
+    /** Column name C_Municipality_ID */
+    public static final String COLUMNNAME_C_Municipality_ID = "C_Municipality_ID";
+
+	/** Set Municipality	  */
+	public void setC_Municipality_ID (int C_Municipality_ID);
+
+	/** Get Municipality	  */
+	public int getC_Municipality_ID();
+
+    /** Column name C_Municipality_UU */
+    public static final String COLUMNNAME_C_Municipality_UU = "C_Municipality_UU";
+
+	/** Set C_Municipality_UU	  */
+	public void setC_Municipality_UU (String C_Municipality_UU);
+
+	/** Get C_Municipality_UU	  */
+	public String getC_Municipality_UU();
 
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
@@ -73,32 +113,20 @@ public interface I_C_Municipality {
 	  */
 	public int getCreatedBy();
 
-    /** Column name C_Municipality_ID */
-    public static final String COLUMNNAME_C_Municipality_ID = "c_municipality_ID";
-
-	/** Set Municipality.
-	  * Identifies a geographical Municipality
-	  */
-	public void setC_Municipality_ID (int C_Municipality_ID);
-
-	/** Get Municipality.
-	  * Identifies a geographical Municipality
-	  */
-	public int getC_Municipality_ID();
-	
-	/** Column name C_Region_ID */
+    /** Column name C_Region_ID */
     public static final String COLUMNNAME_C_Region_ID = "C_Region_ID";
 
-	/** Set Municipality.
-	  * Identifies a geographical Municipality
+	/** Set Region.
+	  * Identifies a geographical Region
 	  */
 	public void setC_Region_ID (int C_Region_ID);
 
-	/** Get Municipality.
-	  * Identifies a geographical Municipality
+	/** Get Region.
+	  * Identifies a geographical Region
 	  */
 	public int getC_Region_ID();
 
+	public org.compiere.model.I_C_Region getC_Region() throws RuntimeException;
 
     /** Column name Description */
     public static final String COLUMNNAME_Description = "Description";
@@ -127,7 +155,7 @@ public interface I_C_Municipality {
 	public boolean isActive();
 
     /** Column name IsDefault */
-    public static final String COLUMNNAME_IsDefault = "isdefault";
+    public static final String COLUMNNAME_IsDefault = "IsDefault";
 
 	/** Set Default.
 	  * Default value

@@ -1,6 +1,6 @@
 /******************************************************************************
- * Product: Adempiere ERP & CRM Smart Business Solution                       *
- * Copyright (C) 1999-2007 ComPiere, Inc. All Rights Reserved.                *
+ * Product: iDempiere ERP & CRM Smart Business Solution                       *
+ * Copyright (C) 1999-2012 ComPiere, Inc. All Rights Reserved.                *
  * This program is free software, you can redistribute it and/or modify it    *
  * under the terms version 2 of the GNU General Public License as published   *
  * by the Free Software Foundation. This program is distributed in the hope   *
@@ -19,18 +19,19 @@ package com.ghintech.model;
 
 import java.sql.ResultSet;
 import java.util.Properties;
-import org.compiere.util.KeyNamePair;
 import org.compiere.model.*;
+import org.compiere.util.KeyNamePair;
+
 /** Generated Model for C_Municipality
- *  @author Adempiere (generated) 
- *  @version 361LTS.Final - $Id$ */
+ *  @author iDempiere (generated) 
+ *  @version Release 2.1 - $Id$ */
 public class X_C_Municipality extends PO implements I_C_Municipality, I_Persistent 
 {
 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20121115L;
+	private static final long serialVersionUID = 20150713L;
 
     /** Standard Constructor */
     public X_C_Municipality (Properties ctx, int C_Municipality_ID, String trxName)
@@ -38,7 +39,6 @@ public class X_C_Municipality extends PO implements I_C_Municipality, I_Persiste
       super (ctx, C_Municipality_ID, trxName);
       /** if (C_Municipality_ID == 0)
         {
-			setC_Country_ID (0);
 			setC_Municipality_ID (0);
 			setName (null);
         } */
@@ -72,14 +72,14 @@ public class X_C_Municipality extends PO implements I_C_Municipality, I_Persiste
       return sb.toString();
     }
 
-	public I_C_Country getC_Country() throws RuntimeException
+	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException
     {
-		return (I_C_Country)MTable.get(getCtx(), I_C_Country.Table_Name)
+		return (org.compiere.model.I_C_Country)MTable.get(getCtx(), org.compiere.model.I_C_Country.Table_Name)
 			.getPO(getC_Country_ID(), get_TrxName());	}
 
 	/** Set Country.
 		@param C_Country_ID 
-		Country 
+		Country
 	  */
 	public void setC_Country_ID (int C_Country_ID)
 	{
@@ -90,7 +90,7 @@ public class X_C_Municipality extends PO implements I_C_Municipality, I_Persiste
 	}
 
 	/** Get Country.
-		@return Country 
+		@return Country
 	  */
 	public int getC_Country_ID () 
 	{
@@ -101,9 +101,7 @@ public class X_C_Municipality extends PO implements I_C_Municipality, I_Persiste
 	}
 
 	/** Set Municipality.
-		@param C_Municipality_ID 
-		Identifies a geographical Municipality
-	  */
+		@param C_Municipality_ID Municipality	  */
 	public void setC_Municipality_ID (int C_Municipality_ID)
 	{
 		if (C_Municipality_ID < 1) 
@@ -113,8 +111,7 @@ public class X_C_Municipality extends PO implements I_C_Municipality, I_Persiste
 	}
 
 	/** Get Municipality.
-		@return Identifies a geographical Municipality
-	  */
+		@return Municipality	  */
 	public int getC_Municipality_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Municipality_ID);
@@ -122,28 +119,48 @@ public class X_C_Municipality extends PO implements I_C_Municipality, I_Persiste
 			 return 0;
 		return ii.intValue();
 	}
-	/** Set Region.
-	@param C_Region_ID 
-	Identifies a geographical Region
-  */
-public void setC_Region_ID (int C_Region_ID)
-{
-	if (C_Region_ID < 1) 
-		set_ValueNoCheck (COLUMNNAME_C_Region_ID, null);
-	else 
-		set_ValueNoCheck (COLUMNNAME_C_Region_ID, Integer.valueOf(C_Region_ID));
-}
 
-/** Get Region.
-	@return Identifies a geographical Region
-  */
-public int getC_Region_ID () 
-{
-	Integer ii = (Integer)get_Value(COLUMNNAME_C_Region_ID);
-	if (ii == null)
-		 return 0;
-	return ii.intValue();
-}
+	/** Set C_Municipality_UU.
+		@param C_Municipality_UU C_Municipality_UU	  */
+	public void setC_Municipality_UU (String C_Municipality_UU)
+	{
+		set_Value (COLUMNNAME_C_Municipality_UU, C_Municipality_UU);
+	}
+
+	/** Get C_Municipality_UU.
+		@return C_Municipality_UU	  */
+	public String getC_Municipality_UU () 
+	{
+		return (String)get_Value(COLUMNNAME_C_Municipality_UU);
+	}
+
+	public org.compiere.model.I_C_Region getC_Region() throws RuntimeException
+    {
+		return (org.compiere.model.I_C_Region)MTable.get(getCtx(), org.compiere.model.I_C_Region.Table_Name)
+			.getPO(getC_Region_ID(), get_TrxName());	}
+
+	/** Set Region.
+		@param C_Region_ID 
+		Identifies a geographical Region
+	  */
+	public void setC_Region_ID (int C_Region_ID)
+	{
+		if (C_Region_ID < 1) 
+			set_ValueNoCheck (COLUMNNAME_C_Region_ID, null);
+		else 
+			set_ValueNoCheck (COLUMNNAME_C_Region_ID, Integer.valueOf(C_Region_ID));
+	}
+
+	/** Get Region.
+		@return Identifies a geographical Region
+	  */
+	public int getC_Region_ID () 
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_C_Region_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
 
 	/** Set Description.
 		@param Description 

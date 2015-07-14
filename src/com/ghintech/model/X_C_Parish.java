@@ -1,6 +1,6 @@
 /******************************************************************************
- * Product: Adempiere ERP & CRM Smart Business Solution                       *
- * Copyright (C) 1999-2007 ComPiere, Inc. All Rights Reserved.                *
+ * Product: iDempiere ERP & CRM Smart Business Solution                       *
+ * Copyright (C) 1999-2012 ComPiere, Inc. All Rights Reserved.                *
  * This program is free software, you can redistribute it and/or modify it    *
  * under the terms version 2 of the GNU General Public License as published   *
  * by the Free Software Foundation. This program is distributed in the hope   *
@@ -19,19 +19,19 @@ package com.ghintech.model;
 
 import java.sql.ResultSet;
 import java.util.Properties;
-import org.compiere.util.KeyNamePair;
 import org.compiere.model.*;
+import org.compiere.util.KeyNamePair;
 
 /** Generated Model for C_Parish
- *  @author Adempiere (generated) 
- *  @version 361LTS.Final - $Id$ */
+ *  @author iDempiere (generated) 
+ *  @version Release 2.1 - $Id$ */
 public class X_C_Parish extends PO implements I_C_Parish, I_Persistent 
 {
 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20121115L;
+	private static final long serialVersionUID = 20150713L;
 
     /** Standard Constructor */
     public X_C_Parish (Properties ctx, int C_Parish_ID, String trxName)
@@ -39,7 +39,7 @@ public class X_C_Parish extends PO implements I_C_Parish, I_Persistent
       super (ctx, C_Parish_ID, trxName);
       /** if (C_Parish_ID == 0)
         {
-			setC_Country_ID (0);
+			setC_Municipality_ID (0);
 			setC_Parish_ID (0);
 			setName (null);
         } */
@@ -73,14 +73,14 @@ public class X_C_Parish extends PO implements I_C_Parish, I_Persistent
       return sb.toString();
     }
 
-	public I_C_Country getC_Country() throws RuntimeException
+	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException
     {
-		return (I_C_Country)MTable.get(getCtx(), I_C_Country.Table_Name)
+		return (org.compiere.model.I_C_Country)MTable.get(getCtx(), org.compiere.model.I_C_Country.Table_Name)
 			.getPO(getC_Country_ID(), get_TrxName());	}
 
 	/** Set Country.
 		@param C_Country_ID 
-		Country 
+		Country
 	  */
 	public void setC_Country_ID (int C_Country_ID)
 	{
@@ -91,7 +91,7 @@ public class X_C_Parish extends PO implements I_C_Parish, I_Persistent
 	}
 
 	/** Get Country.
-		@return Country 
+		@return Country
 	  */
 	public int getC_Country_ID () 
 	{
@@ -101,10 +101,33 @@ public class X_C_Parish extends PO implements I_C_Parish, I_Persistent
 		return ii.intValue();
 	}
 
+	public I_C_Municipality getC_Municipality() throws RuntimeException
+    {
+		return (I_C_Municipality)MTable.get(getCtx(), I_C_Municipality.Table_Name)
+			.getPO(getC_Municipality_ID(), get_TrxName());	}
+
+	/** Set Municipality.
+		@param C_Municipality_ID Municipality	  */
+	public void setC_Municipality_ID (int C_Municipality_ID)
+	{
+		if (C_Municipality_ID < 1) 
+			set_ValueNoCheck (COLUMNNAME_C_Municipality_ID, null);
+		else 
+			set_ValueNoCheck (COLUMNNAME_C_Municipality_ID, Integer.valueOf(C_Municipality_ID));
+	}
+
+	/** Get Municipality.
+		@return Municipality	  */
+	public int getC_Municipality_ID () 
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_C_Municipality_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
+
 	/** Set Parish.
-		@param C_Parish_ID 
-		Identifies a geographical Parish
-	  */
+		@param C_Parish_ID Parish	  */
 	public void setC_Parish_ID (int C_Parish_ID)
 	{
 		if (C_Parish_ID < 1) 
@@ -114,8 +137,7 @@ public class X_C_Parish extends PO implements I_C_Parish, I_Persistent
 	}
 
 	/** Get Parish.
-		@return Identifies a geographical Parish
-	  */
+		@return Parish	  */
 	public int getC_Parish_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Parish_ID);
@@ -123,51 +145,48 @@ public class X_C_Parish extends PO implements I_C_Parish, I_Persistent
 			 return 0;
 		return ii.intValue();
 	}
-	
-	/** Set Region.
-	@param C_Region_ID 
-	Identifies a geographical Region
-  */
-public void setC_Municipality_ID (int C_Municipality_ID)
-{
-	if (C_Municipality_ID < 1) 
-		set_ValueNoCheck (COLUMNNAME_C_Region_ID, null);
-	else 
-		set_ValueNoCheck (COLUMNNAME_C_Region_ID, Integer.valueOf(C_Municipality_ID));
-}
 
-/** Get Region.
-	@return Identifies a geographical Region
-  */
-public int getC_Municipality_ID () 
-{
-	Integer ii = (Integer)get_Value(COLUMNNAME_C_Municipality_ID);
-	if (ii == null)
-		 return 0;
-	return ii.intValue();
-}
-	/** Set Region.
-	@param C_Region_ID 
-	Identifies a geographical Region
-  */
-public void setC_Region_ID (int C_Region_ID)
-{
-	if (C_Region_ID < 1) 
-		set_ValueNoCheck (COLUMNNAME_C_Region_ID, null);
-	else 
-		set_ValueNoCheck (COLUMNNAME_C_Region_ID, Integer.valueOf(C_Region_ID));
-}
+	/** Set C_Parish_UU.
+		@param C_Parish_UU C_Parish_UU	  */
+	public void setC_Parish_UU (String C_Parish_UU)
+	{
+		set_Value (COLUMNNAME_C_Parish_UU, C_Parish_UU);
+	}
 
-/** Get Region.
-	@return Identifies a geographical Region
-  */
-public int getC_Region_ID () 
-{
-	Integer ii = (Integer)get_Value(COLUMNNAME_C_Region_ID);
-	if (ii == null)
-		 return 0;
-	return ii.intValue();
-}
+	/** Get C_Parish_UU.
+		@return C_Parish_UU	  */
+	public String getC_Parish_UU () 
+	{
+		return (String)get_Value(COLUMNNAME_C_Parish_UU);
+	}
+
+	public org.compiere.model.I_C_Region getC_Region() throws RuntimeException
+    {
+		return (org.compiere.model.I_C_Region)MTable.get(getCtx(), org.compiere.model.I_C_Region.Table_Name)
+			.getPO(getC_Region_ID(), get_TrxName());	}
+
+	/** Set Region.
+		@param C_Region_ID 
+		Identifies a geographical Region
+	  */
+	public void setC_Region_ID (int C_Region_ID)
+	{
+		if (C_Region_ID < 1) 
+			set_ValueNoCheck (COLUMNNAME_C_Region_ID, null);
+		else 
+			set_ValueNoCheck (COLUMNNAME_C_Region_ID, Integer.valueOf(C_Region_ID));
+	}
+
+	/** Get Region.
+		@return Identifies a geographical Region
+	  */
+	public int getC_Region_ID () 
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_C_Region_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
 
 	/** Set Description.
 		@param Description 

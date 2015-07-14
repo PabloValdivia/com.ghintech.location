@@ -197,15 +197,17 @@ public class VEWLocationDialog extends Window implements EventListener<Event>
 		lstCountry.addEventListener(Events.ON_SELECT,this);
 		lstRegion.addEventListener(Events.ON_SELECT,this);
 		lstMunicipality.addEventListener(Events.ON_SELECT,this);
-		//lstParish.addEventListener(Events.ON_SELECT,this);
+		lstParish.addEventListener(Events.ON_SELECT,this);
 		
 		m_origCountry_ID = m_location.getC_Country_ID();
 		//  Current Region
 		lstRegion.appendItem("", null);
+		
 		for (MRegion region : MRegion.getRegions(Env.getCtx(), m_origCountry_ID))
 		{
 			lstRegion.appendItem(region.getName(),region);
 		}
+		
 		if (m_location.getCountry().isHasRegion()) {
 			if (m_location.getCountry().get_Translation(MCountry.COLUMNNAME_RegionName) != null
 					&& m_location.getCountry().get_Translation(MCountry.COLUMNNAME_RegionName).trim().length() > 0)
@@ -268,9 +270,9 @@ public class VEWLocationDialog extends Window implements EventListener<Event>
 		lblCountry      = new Label(Msg.getMsg(Env.getCtx(), "Country"));
 		lblCountry.setStyle(LABEL_STYLE);
 		//
-		lblMunicipality = new Label(Msg.translate(Env.getCtx(), "c_municipality_id"));
+		lblMunicipality = new Label(Msg.translate(Env.getCtx(), "c_municipality_ID"));
 		lblMunicipality.setStyle(LABEL_STYLE);
-		lblParish = new Label(Msg.translate(Env.getCtx(), "c_parish_id"));
+		lblParish = new Label(Msg.translate(Env.getCtx(), "c_parish_ID"));
 		lblParish.setStyle(LABEL_STYLE);
 		//fin
 		
@@ -497,8 +499,11 @@ lstCountry.setHflex("1");
 		{
 			
 			lstMunicipality.getChildren().clear();
+			lstMunicipality.appendItem("", null);
+			lstParish.getChildren().clear();
+			lstParish.appendItem("", null); 
 			
-			lstMunicipality.appendItem("", null); 
+			 
 			for (MMunicipality municipality : MMunicipality.getMunicipalitys(Env.getCtx(), m_location.getC_Region_ID()))
 			{
 				lstMunicipality.appendItem(municipality.getName(),municipality);
@@ -513,7 +518,13 @@ lstCountry.setHflex("1");
 			}
 			
 			s_oldRegion_ID = m_location.getC_Region_ID();
-			
+		
+			if (m_location.getC_Municipality_ID() > 0)
+			{
+				Env.setContext(Env.getCtx(), m_WindowNo, Env.TAB_INFO, "C_Municipality_ID", String.valueOf(m_location.getC_Municipality_ID()));
+			} else {
+				Env.setContext(Env.getCtx(), m_WindowNo, Env.TAB_INFO, "C_Municipality_ID", "0");
+			}
 		}
 		
 		if (m_location.getC_Municipality_ID() != s_oldMunicipality_ID)
@@ -838,10 +849,15 @@ lstCountry.setHflex("1");
 			if (inCountryAction || inOKAction)
 				return;
 			
+			MRegion r = (MRegion)lstRegion.getSelectedItem().getValue();
+			m_location.setRegion(r);
+			m_location.setC_City_ID(0);
+			m_location.setCity(null);
 			MMunicipality m = (MMunicipality)lstMunicipality.getSelectedItem().getValue();
 			m_location.setMunicipality(m);
 			
 			initLocation();
+			//lstMunicipality.focus();
 		}
 	}
 

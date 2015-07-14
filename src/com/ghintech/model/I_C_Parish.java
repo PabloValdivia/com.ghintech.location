@@ -1,6 +1,6 @@
 /******************************************************************************
- * Product: Adempiere ERP & CRM Smart Business Solution                       *
- * Copyright (C) 1999-2007 ComPiere, Inc. All Rights Reserved.                *
+ * Product: iDempiere ERP & CRM Smart Business Solution                       *
+ * Copyright (C) 1999-2012 ComPiere, Inc. All Rights Reserved.                *
  * This program is free software, you can redistribute it and/or modify it    *
  * under the terms version 2 of the GNU General Public License as published   *
  * by the Free Software Foundation. This program is distributed in the hope   *
@@ -18,20 +18,21 @@ package com.ghintech.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import org.compiere.util.KeyNamePair;
 import org.compiere.model.*;
+import org.compiere.util.KeyNamePair;
 
 /** Generated Interface for C_Parish
- *  @author Adempiere (generated) 
- *  @version 361LTS.Final
+ *  @author iDempiere (generated) 
+ *  @version Release 2.1
  */
+@SuppressWarnings("all")
 public interface I_C_Parish 
 {
 
     /** TableName=C_Parish */
     public static final String Table_Name = "C_Parish";
 
-    /** AD_Table_ID=164 */
+    /** AD_Table_ID=1000013 */
     public static final int Table_ID = MTable.getTable_ID(Table_Name);
 
     KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
@@ -67,16 +68,45 @@ public interface I_C_Parish
     public static final String COLUMNNAME_C_Country_ID = "C_Country_ID";
 
 	/** Set Country.
-	  * Country 
+	  * Country
 	  */
 	public void setC_Country_ID (int C_Country_ID);
 
 	/** Get Country.
-	  * Country 
+	  * Country
 	  */
 	public int getC_Country_ID();
 
-	public I_C_Country getC_Country() throws RuntimeException;
+	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException;
+
+    /** Column name C_Municipality_ID */
+    public static final String COLUMNNAME_C_Municipality_ID = "C_Municipality_ID";
+
+	/** Set Municipality	  */
+	public void setC_Municipality_ID (int C_Municipality_ID);
+
+	/** Get Municipality	  */
+	public int getC_Municipality_ID();
+
+	public I_C_Municipality getC_Municipality() throws RuntimeException;
+
+    /** Column name C_Parish_ID */
+    public static final String COLUMNNAME_C_Parish_ID = "C_Parish_ID";
+
+	/** Set Parish	  */
+	public void setC_Parish_ID (int C_Parish_ID);
+
+	/** Get Parish	  */
+	public int getC_Parish_ID();
+
+    /** Column name C_Parish_UU */
+    public static final String COLUMNNAME_C_Parish_UU = "C_Parish_UU";
+
+	/** Set C_Parish_UU	  */
+	public void setC_Parish_UU (String C_Parish_UU);
+
+	/** Get C_Parish_UU	  */
+	public String getC_Parish_UU();
 
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
@@ -94,45 +124,20 @@ public interface I_C_Parish
 	  */
 	public int getCreatedBy();
 
-    /** Column name C_Parish_ID */
-    public static final String COLUMNNAME_C_Parish_ID = "C_Parish_ID";
-
-	/** Set Parish.
-	  * Identifies a geographical Parish
-	  */
-	public void setC_Parish_ID (int C_Parish_ID);
-
-	/** Get Parish.
-	  * Identifies a geographical Parish
-	  */
-	public int getC_Parish_ID();
-	
-	/** Column name C_Municipality_ID */
-    public static final String COLUMNNAME_C_Municipality_ID = "c_municipality_ID";
-
-	/** Set Parish.
-	  * Identifies a geographical Parish
-	  */
-	public void setC_Municipality_ID (int C_Municipality_ID);
-
-	/** Get Parish.
-	  * Identifies a geographical Parish
-	  */
-	public int getC_Municipality_ID();
-	
-	/** Column name C_Region_ID */
+    /** Column name C_Region_ID */
     public static final String COLUMNNAME_C_Region_ID = "C_Region_ID";
 
-	/** Set Parish.
-	  * Identifies a geographical Parish
+	/** Set Region.
+	  * Identifies a geographical Region
 	  */
 	public void setC_Region_ID (int C_Region_ID);
 
-	/** Get Parish.
-	  * Identifies a geographical Parish
+	/** Get Region.
+	  * Identifies a geographical Region
 	  */
 	public int getC_Region_ID();
 
+	public org.compiere.model.I_C_Region getC_Region() throws RuntimeException;
 
     /** Column name Description */
     public static final String COLUMNNAME_Description = "Description";
@@ -161,7 +166,7 @@ public interface I_C_Parish
 	public boolean isActive();
 
     /** Column name IsDefault */
-    public static final String COLUMNNAME_IsDefault = "isdefault";
+    public static final String COLUMNNAME_IsDefault = "IsDefault";
 
 	/** Set Default.
 	  * Default value
