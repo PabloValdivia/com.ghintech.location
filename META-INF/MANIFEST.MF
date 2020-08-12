@@ -4,15 +4,16 @@ Bundle-Name: Location
 Bundle-SymbolicName: com.ghintech.location;singleton:=true
 Bundle-Version: 1.0.1.qualifier
 Bundle-Vendor: GHINTECH
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.adempiere.base;bundle-version="1.0.0",
  org.adempiere.plugin.utils;bundle-version="0.0.0",
  org.adempiere.ui;bundle-version="1.0.0",
- org.zkoss.zk.library;bundle-version="6.0.0",
- org.adempiere.ui.zk;bundle-version="1.0.0"
+ org.adempiere.ui.zk;bundle-version="1.0.0",
+ zk;bundle-version="8.6.0"
 Service-Component: META-INF/locationfactory.xml,META-INF/locationmodelfactory.xml
 Bundle-Activator: org.adempiere.plugin.utils.AdempiereActivator
 Export-Package: com.ghintech.location,
  com.ghintech.location.factory,
  com.ghintech.model
 Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: com.ghintech.location

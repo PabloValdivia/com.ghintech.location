@@ -17,14 +17,12 @@
 package com.ghintech.model;
 
 import java.io.File;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -121,7 +119,6 @@ public final class MParish extends X_C_Parish
 	 * 	@param ctx context
 	 *  @return MCountry Array
 	 */
-	@SuppressWarnings("unchecked")
 	public static MParish[] getParishs(Properties ctx)
 	{
 		if (s_Parishs == null || s_Parishs.size() == 0)
@@ -138,13 +135,12 @@ public final class MParish extends X_C_Parish
 	 *  @param C_Country_ID country
 	 *  @return MParish Array
 	 */
-	@SuppressWarnings("unchecked")
 	public static MParish[] getParishs (Properties ctx, int C_Municipality_ID, int C_Region_ID)
 	{
 		if (s_Parishs == null || s_Parishs.size() == 0)
 			loadAllParishs(ctx);
 		ArrayList<MParish> list = new ArrayList<MParish>();
-		Iterator it = s_Parishs.values().iterator();
+		Iterator<MParish> it = s_Parishs.values().iterator();
 		while (it.hasNext())
 		{
 			MParish r = (MParish)it.next();

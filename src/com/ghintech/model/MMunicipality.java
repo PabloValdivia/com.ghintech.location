@@ -17,14 +17,12 @@
 package com.ghintech.model;
 
 import java.io.File;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -35,7 +33,6 @@ import org.compiere.util.CCache;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
-import org.compiere.util.Trx;
 
 /**
  *	Localtion Municipality Model (Value Object)
@@ -122,7 +119,6 @@ public final class MMunicipality extends X_C_Municipality
 	 * 	@param ctx context
 	 *  @return MCountry Array
 	 */
-	@SuppressWarnings("unchecked")
 	public static MMunicipality[] getMunicipalitys(Properties ctx)
 	{
 		if (s_Municipalitys == null || s_Municipalitys.size() == 0)
@@ -139,13 +135,12 @@ public final class MMunicipality extends X_C_Municipality
 	 *  @param C_Country_ID country
 	 *  @return MMunicipality Array
 	 */
-	@SuppressWarnings("unchecked")
 	public static MMunicipality[] getMunicipalitys (Properties ctx, int C_Region_ID)
 	{
 		if (s_Municipalitys == null || s_Municipalitys.size() == 0)
 			loadAllMunicipalitys(ctx);
 		ArrayList<MMunicipality> list = new ArrayList<MMunicipality>();
-		Iterator it = s_Municipalitys.values().iterator();
+		Iterator<MMunicipality> it = s_Municipalitys.values().iterator();
 		while (it.hasNext())
 		{
 			MMunicipality r = (MMunicipality)it.next();

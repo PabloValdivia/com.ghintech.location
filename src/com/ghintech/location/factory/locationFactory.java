@@ -1,7 +1,6 @@
 package com.ghintech.location.factory;
 
 import org.adempiere.webui.editor.WEditor;
-import org.adempiere.webui.editor.WLocationEditor;
 import org.adempiere.webui.factory.IEditorFactory;
 import org.compiere.model.GridField;
 import org.compiere.model.GridTab;

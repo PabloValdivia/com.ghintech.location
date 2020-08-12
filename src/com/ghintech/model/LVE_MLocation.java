@@ -21,7 +21,6 @@ import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Comparator;
 import java.util.Properties;
 import java.util.logging.Level;
 
@@ -29,9 +28,7 @@ import org.compiere.process.DocAction;
 import org.compiere.util.CCache;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
-import org.compiere.util.Env;
-import org.compiere.util.Msg;
-import org.compiere.util.Util;
+
 import org.compiere.model.*;
 /**
  *	Location (Address)
@@ -77,7 +74,7 @@ public class LVE_MLocation extends MLocation implements DocAction
 		if (C_Location_ID == 0)
 			return new LVE_MLocation(ctx, C_Location_ID, trxName);
 		//
-		Integer key = new Integer (C_Location_ID);
+		Integer key = C_Location_ID;
 		LVE_MLocation retValue = null;
 		if (trxName == null)
 			retValue = (LVE_MLocation) s_cache.get (key);
